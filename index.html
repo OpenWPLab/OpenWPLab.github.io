@@ -1,0 +1,135 @@
+<link rel="apple-touch-icon" sizes="180x180" href="assets/icon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/icon/favicon-16x16.png">
+<link rel="manifest" href="assets/icon/site.webmanifest">
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenWPLab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#000000',
+                        accent: '#6366f1',
+                        blue: '#3b82f6',
+                        logo: '#0033cc',
+
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(90deg, rgb(99, 202, 207));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .gradient-text-title {
+            background: linear-gradient(90deg, rgb(99, 202, 207), rgb(7, 24, 74), rgb(99, 202, 207));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 200% auto;
+            animation: gradient 5s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+
+        .hover-scale:hover {
+            transform: scale(1.03);
+        }
+
+        .news-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), transparent);
+        }
+
+        /* Loading state styles */
+        body.loading {
+            opacity: 0;
+        }
+
+        body.loaded {
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-900 min-h-screen font-sans loading">
+    <!-- Navigation Container -->
+    <div id="nav-container"></div>
+
+    <!-- Main Content Area -->
+    <main class="pt-20 pb-16">
+        <!-- Home Module -->
+        <div id="home-container"></div>
+
+        <!-- Publications Module -->
+        <div id="publications-container"></div>
+
+        <!-- People Module -->
+        <div id="people-container"></div>
+
+        <!-- Sponsors Module -->
+        <!-- <div id="sponsors-container"></div> -->
+    </main>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+
+    <!-- Component Loader Script -->
+    <script src="js/load-components.js"></script>
+</body>
+
+</html>
